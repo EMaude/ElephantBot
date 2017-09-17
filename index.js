@@ -35,19 +35,23 @@ client.on('message', message => {
 
 		  	search.search('elephant', {page: randSelect})
 		  	.then(images => {
+		  		message.channel.send(images[9].url)
 		  		//write data to file
-		  		fs.writeFile(filename, images, function(err)
-		  			{
-		  				if(err)
-		  				{
-		  					return console.error(err);
-		  				}
-	  					console.log("File Write Successful");
-	  				});
+		  		for(var i = 0; i < 9; i++)
+		  		{
+		  			fs.appendFile(filename, images[i].url);
+		  		}
 	  		});
+
+	  	} 
+	  	else 
+	  	{
+	  	
+	  		console.log("File Found");
+	  		//pull message and remove from file
+
 	  	}
 
-	  	console.log("File Found");
   	});
   }
   else if(message.content.startsWith(config.prefix + "ping")){
