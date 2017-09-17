@@ -24,20 +24,13 @@ exports.imageSearcher = function(searchTerm)
 		  		{
 		  			if(i === 1)
 		  			{
-		  				fs.appendFile(filename, images[i].url,(err) => {
-							if (err) throw err;
-							console.log('The url was appended to file!');
-						});
-		  			}
+		  				fs.appendFileSync(filename, images[i].url);
 		  			else
 		  			{
-		  				fs.appendFile(filename, images[i].url + "\n",(err) => {
-							if (err) throw err;
-							console.log('The url was appended to file!');
-						}); 
+		  				fs.appendFileSync(filename, images[i].url + "\n"); 
 		  			}
 		  		}
-	  		});
+	  		};
 	  	} 
 	  	else 
 	  	{ 	
@@ -45,7 +38,8 @@ exports.imageSearcher = function(searchTerm)
 	  		//send message and write file without it
 	  		var sdata = data.split('\n');
 	  		output = sdata[0];
-	  		//remove file
+
+	  		//remove the file
 	  		fs.unlink(filename, (err) => {
 	  			if(err) throw err;
 	  		});
@@ -57,17 +51,11 @@ exports.imageSearcher = function(searchTerm)
 	  			{
 	  				if(i === 1)
 	  				{
-	  					fs.appendFile(filename, sdata[i],(err) => {
-							if (err) throw err;
-							console.log('The url was appended to file!');
-						});
+	  					fs.appendFileSync(filename, sdata[i]);
 	  				}
 	  				else
 	  				{
-		  				fs.appendFile(filename, sdata[i] + "\n",(err) => {
-							if (err) throw err;
-							console.log('The url was appended to file!');
-						}); 
+		  				fs.appendFileSync(filename, sdata[i] + "\n"); 
 	  				}
 	  			}
 	  		}
