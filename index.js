@@ -39,12 +39,10 @@ client.on('message', message => {
 		  		//write data to file
 		  		for(var i = 0; i < 9; i++)
 		  		{
-		  			fs.appendFile(filename, images[i].url, function(err){
-		  				if(err)
-		  				{
-		  					return console.error(err);
-		  				}
-		  			});
+		  			fs.appendFile(filename, images[i].url,(err) => {
+						if (err) throw err;
+						console.log('The "data to append" was appended to file!');
+					}); 
 		  		}
 	  		});
 
