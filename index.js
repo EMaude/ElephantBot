@@ -67,7 +67,7 @@ client.on('message', message => {
 	  			{
 	  				if(i = sdata.length - 1)
 	  				{
-	  					fs.appendFile(filename, sdata[i] + ",",(err) => {
+	  					fs.appendFile(filename, sdata[i],(err) => {
 							if (err) throw err;
 							console.log('The "data to append" was appended to file!');
 						});
