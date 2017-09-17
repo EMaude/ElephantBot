@@ -12,6 +12,6 @@
     "google-images": "^2.1.0"
   },
   "nodemonConfig": {
-   "ignore": ["searches/*"],
+   "ignore": ["searches/*"]
   }
 }
