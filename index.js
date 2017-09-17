@@ -6,6 +6,7 @@
 //NPM Requires
 const discord = require('discord.js');
 const GoogleImages = require('google-images');
+const fs = require('fs'); 
 //Custom Requires
 const config = require("./configs/config.json");
 
@@ -20,15 +21,33 @@ client.on('ready', () => {
 // Create an event listener for messages
 client.on('message', message => {
   // If the message is "(prefix)ping"
+
   if(message.content.startsWith(config.prefix + "elephant")){
-  	search.search('elephant', {page: 2})
-  	.then(images => {
-  		var randSelect = Math.floor(Math.random(0, 100));
-  		console.log(images.length);
-  		for(var i = 0; i < 10; i++)
-  		{
-  			message.channel.send(images[i].url);
-  		}
+
+  	var filename = "./elephant.json"
+  	//read file of search term
+  	fs.readFile(filename, function(err){
+		//if the file does not exist, search for the term with a random page, and pull out the resulting images to a file
+		if(err)
+		{
+			var randSelect = Math.floor(Math.random(0, 100));
+			console.log("Pulling Page " + randSelect);
+
+		  	search.search('elephant', {page: randSelect})
+		  	.then(images => {
+		  		//write data to file
+		  		fs.writeFile(filename, images, function(err)
+		  			{
+		  				if(err)
+		  				{
+		  					return console.error(err);
+		  				}
+	  					console.log("File Write Successful");
+	  				});
+	  		});
+	  	}
+
+	  	console.log("File Found");
   	});
   }
   else if(message.content.startsWith(config.prefix + "ping")){
