@@ -20,7 +20,7 @@ client.on('ready', () => {
 client.on('message', message => {
   if(message.content.startsWith(config.prefix + "elephant")){
 
-  	search.imageSearcher('elephant');
+  	message.channel.send(search.imageSearcher('elephant'));
 
   }
   else if(message.content.startsWith(config.prefix + "ping")){

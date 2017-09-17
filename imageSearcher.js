@@ -6,6 +6,7 @@ const search = new GoogleImages(config.CSE_ID, config.CSE_API_KEY);
 exports.imageSearcher = function(searchTerm)
 {
 	var filename = "./searches/" + searchTerm + ".json";
+	var output;
   	//read file of search term
   	fs.readFile(filename, "utf-8", (err, data) => {
 		//if the file does not exist, search for the term with a random page, and pull out the resulting images to a file
@@ -16,7 +17,8 @@ exports.imageSearcher = function(searchTerm)
 
 		  	search.search('elephant', {page: randSelect})
 		  	.then(images => {
-		  		message.channel.send(images[9].url)
+
+		  		var output = images[9].url;
 		  		//write data to file
 		  		for(var i = 0; i < 9; i++)
 		  		{
@@ -32,8 +34,7 @@ exports.imageSearcher = function(searchTerm)
 	  		console.log("File Found");
 	  		//send message and write file without it
 	  		var sdata = data.split(",");
-	  		message.channel.send(sdata[sdata.length]);
-	  		console.log(sdata.length);
+	  		output = sdata[sdata.length];
 	  		//remove file
 	  		fs.unlink(filename, (err) => {
 	  			if(err) throw err;
@@ -61,5 +62,6 @@ exports.imageSearcher = function(searchTerm)
 	  			}
 	  		}
 	  	}
+	  	return output;
   	});
 };
