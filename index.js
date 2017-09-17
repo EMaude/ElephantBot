@@ -54,7 +54,7 @@ client.on('message', message => {
 	  		//send message and write file without it
 	  		var sdata = data.split(",");
 	  		message.channel.send(sdata[sdata.length]);
-
+	  		console.log(sdata.length);
 	  		//remove file
 	  		fs.unlink(filename, (err) => {
 	  			if(err) throw err;
