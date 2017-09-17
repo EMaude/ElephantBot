@@ -53,7 +53,7 @@ client.on('message', message => {
 	  		console.log("File Found");
 	  		//send message and write file without it
 	  		var sdata = data.split(",");
-	  		message.channel.send(images[sdata.length].url);
+	  		message.channel.send(sdata[sdata.length]);
 
 	  		if(sdata.length > 1)
 	  		{
