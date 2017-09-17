@@ -1,5 +1,7 @@
 const fs = require('fs');
+const config = require("./configs/config.json");
 const GoogleImages = require('google-images');
+const search = new GoogleImages(config.CSE_ID, config.CSE_API_KEY);
 
 function imageSearcher(searchTerm)
 {

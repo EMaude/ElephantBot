@@ -10,7 +10,6 @@ const config = require("./configs/config.json");
 const search = require("./imageSearcher.js");
 
 const client = new discord.Client();
-const search = new GoogleImages(config.CSE_ID, config.CSE_API_KEY);
 // The ready event is vital, it means that your bot will only start reacting to information
 // from Discord _after_ ready is emitted
 client.on('ready', () => {
