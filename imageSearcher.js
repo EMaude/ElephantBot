@@ -40,6 +40,8 @@ exports.imageSearcher = function(searchTerm)
 	  		var sdata = data.split('\n');
 	  		output = sdata[0];
 
+	  		console.log("Set output (" + output + ") to " + sdata[0]);
+
 	  		//remove the file
 	  		fs.unlink(filename, (err) => {
 	  			if(err) throw err;
