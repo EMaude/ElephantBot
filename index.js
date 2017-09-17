@@ -24,7 +24,11 @@ client.on('message', message => {
   	search.search('elephant')
   	.then(images => {
   		var randSelect = Math.floor(Math.random(0, 100));
-  		message.channel.send(images[randSelect].url);
+  		console.log(images.length);
+  		for(var i = 0; i < 10; i++)
+  		{
+  			message.channel.send(images[i].url);
+  		}
   	});
   }
   else if(message.content.startsWith(config.prefix + "ping")){
