@@ -3,7 +3,7 @@ const config = require("./configs/config.json");
 const GoogleImages = require('google-images');
 const search = new GoogleImages(config.CSE_ID, config.CSE_API_KEY);
 
-function imageSearcher(searchTerm)
+exports.imageSearcher = function(searchTerm)
 {
 	var filename = "./searches/" + searchTerm + ".json";
   	//read file of search term
@@ -62,4 +62,4 @@ function imageSearcher(searchTerm)
 	  		}
 	  	}
   	});
-}
+};

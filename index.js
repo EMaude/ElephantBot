@@ -6,8 +6,8 @@
 //NPM Requires
 const discord = require('discord.js');
 //Custom Requires
-const config = require("./configs/config.json");
-const search = require("./imageSearcher.js");
+const config = require('./configs/config.json');
+const search = require('./imageSearcher.js');
 
 const client = new discord.Client();
 // The ready event is vital, it means that your bot will only start reacting to information
