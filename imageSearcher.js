@@ -20,7 +20,7 @@ exports.imageSearcher = function(searchTerm, cb)
 		//if the file does not exist, search for the term with a random page, and pull out the resulting images to a file
 		if(err)
 		{
-			var randSelect = Math.floor(Math.random() * 1000);
+			var randSelect = Math.floor(Math.random() * 100);
 			console.log("Pulling Page " + randSelect);
 
 		  	search.search('elephant', {page: randSelect})
