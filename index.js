@@ -57,7 +57,7 @@ client.on('message', message => {
 
 	  		if(sdata.length > 1)
 	  		{
-	  			for(var i = 0; i < sdata.length, i++)
+	  			for(var i = 0; i < sdata.length; i++)
 	  			{
 	  				fs.appendFile(filename, images[i].url + ",",(err) => {
 						if (err) throw err;
