@@ -19,14 +19,14 @@ client.on('ready', () => {
 // Create an event listener for messages
 client.on('message', message => {
   if(message.content.startsWith(config.prefix + "elephant")){
-  	var reply = searcher.imageSearcher('elephant');
-  	console.log("Reply: " + reply);
-  	
-  	if(reply === undefined)
-  	{
-  		reply = "Sorry, something went wrong!";
-  	}
-  	message.channel.send(reply);
+
+  	searcher.imageSearcher('elephant', function(reply) { 
+  		if(reply === undefined)
+  		{
+  			reply = "Sorry, something went wrong!";
+  		}
+  		message.channel.send(reply);
+  	});
   }
   else if(message.content.startsWith(config.prefix + "ping")){
     // Send "pong" to the same channel

@@ -3,7 +3,7 @@ const config = require("./configs/config.json");
 const GoogleImages = require('google-images');
 const search = new GoogleImages(config.CSE_ID, config.CSE_API_KEY);
 
-exports.imageSearcher = function(searchTerm)
+exports.imageSearcher = function(searchTerm, cb)
 {
 	var filename = "./searches/" + searchTerm + ".json";
 	var output = "Sorry, something went wrong!";
@@ -40,8 +40,6 @@ exports.imageSearcher = function(searchTerm)
 	  		var sdata = data.split('\n');
 	  		output = sdata[0];
 
-	  		console.log("Set output (" + output + ") to " + sdata[0]);
-
 	  		//remove the file
 	  		fs.unlink(filename, (err) => {
 	  			if(err) throw err;
@@ -63,7 +61,6 @@ exports.imageSearcher = function(searchTerm)
 	  			}
 	  		}
 	  	}
-	  	console.log("Return " + output);
-	  	return output;
+	  	cb(output);
   	});
 };
