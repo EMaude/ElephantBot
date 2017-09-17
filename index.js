@@ -7,7 +7,7 @@
 const discord = require('discord.js');
 //Custom Requires
 const config = require('./configs/config.json');
-const search = require('./imageSearcher.js');
+const searcher = require('./imageSearcher.js');
 
 const client = new discord.Client();
 // The ready event is vital, it means that your bot will only start reacting to information
@@ -20,7 +20,7 @@ client.on('ready', () => {
 client.on('message', message => {
   if(message.content.startsWith(config.prefix + "elephant")){
 
-  	message.channel.send(search.imageSearcher('elephant'));
+  	message.channel.send(searcher.imageSearcher('elephant'));
 
   }
   else if(message.content.startsWith(config.prefix + "ping")){

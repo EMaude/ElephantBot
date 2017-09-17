@@ -18,11 +18,11 @@ exports.imageSearcher = function(searchTerm)
 		  	search.search('elephant', {page: randSelect})
 		  	.then(images => {
 
-		  		var output = images[9].url;
+		  		output = images[9].url;
 		  		//write data to file
 		  		for(var i = 0; i < 9; i++)
 		  		{
-		  			fs.appendFile(filename, images[i].url + ",",(err) => {
+		  			fs.appendFile(filename, images[i].url + "\n",(err) => {
 						if (err) throw err;
 						console.log('The url was appended to file!');
 					}); 
@@ -33,7 +33,7 @@ exports.imageSearcher = function(searchTerm)
 	  	{ 	
 	  		console.log("File Found");
 	  		//send message and write file without it
-	  		var sdata = data.split(",");
+	  		var sdata = data.split('\n');
 	  		output = sdata[0];
 	  		//remove file
 	  		fs.unlink(filename, (err) => {
@@ -54,7 +54,7 @@ exports.imageSearcher = function(searchTerm)
 	  				}
 	  				else
 	  				{
-		  				fs.appendFile(filename, sdata[i] + ",",(err) => {
+		  				fs.appendFile(filename, sdata[i] + "\n",(err) => {
 							if (err) throw err;
 							console.log('The url was appended to file!');
 						}); 
