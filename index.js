@@ -55,6 +55,12 @@ client.on('message', message => {
 	  		var sdata = data.split(",");
 	  		message.channel.send(sdata[sdata.length]);
 
+	  		//remove file
+	  		fs.unlink(filename, (err) => {
+	  			if(err) throw err;
+	  		});
+
+	  		//if more data exists write to file
 	  		if(sdata.length > 1)
 	  		{
 	  			for(var i = 0; i < sdata.length; i++)
@@ -65,15 +71,7 @@ client.on('message', message => {
 					}); 
 	  			}
 	  		}
-	  		else
-	  		{ //remove file
-	  			fs.unlink(filename, (err) => {
-	  				if(err) throw err;
-	  			});
-	  		}
-	  		
 	  	}
-
   	});
   }
   else if(message.content.startsWith(config.prefix + "ping")){
