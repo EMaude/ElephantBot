@@ -24,7 +24,7 @@ exports.imageSearcher = function(searchTerm)
 		  		{
 		  			fs.appendFile(filename, images[i].url + ",",(err) => {
 						if (err) throw err;
-						console.log('The "data to append" was appended to file!');
+						console.log('The url was appended to file!');
 					}); 
 		  		}
 	  		});
@@ -34,7 +34,7 @@ exports.imageSearcher = function(searchTerm)
 	  		console.log("File Found");
 	  		//send message and write file without it
 	  		var sdata = data.split(",");
-	  		output = sdata[sdata.length];
+	  		output = sdata[0];
 	  		//remove file
 	  		fs.unlink(filename, (err) => {
 	  			if(err) throw err;
@@ -43,20 +43,20 @@ exports.imageSearcher = function(searchTerm)
 	  		//if more data exists write to file
 	  		if(sdata.length > 1)
 	  		{
-	  			for(var i = 0; i < sdata.length; i++)
+	  			for(var i = sdata.length - 1; i > 0; i++)
 	  			{
-	  				if(i == sdata.length - 1)
+	  				if(i == 1)
 	  				{
 	  					fs.appendFile(filename, sdata[i],(err) => {
 							if (err) throw err;
-							console.log('The "data to append" was appended to file!');
+							console.log('The url was appended to file!');
 						});
 	  				}
 	  				else
 	  				{
 		  				fs.appendFile(filename, sdata[i] + ",",(err) => {
 							if (err) throw err;
-							console.log('The "data to append" was appended to file!');
+							console.log('The url was appended to file!');
 						}); 
 	  				}
 	  			}
