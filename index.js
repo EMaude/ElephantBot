@@ -21,7 +21,7 @@ client.on('ready', () => {
 client.on('message', message => {
   // If the message is "(prefix)ping"
   if(message.content.startsWith(config.prefix + "elephant")){
-  	client.search('elephant')
+  	search.search('elephant')
   	.then(images => {
   		var randSelect = Math.floor(Math.random(0, 100));
   		message.channel.send(images[randSelect].url);
