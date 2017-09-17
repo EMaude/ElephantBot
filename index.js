@@ -63,12 +63,22 @@ client.on('message', message => {
 	  		//if more data exists write to file
 	  		if(sdata.length > 1)
 	  		{
-	  			for(var i = 0; i < sdata.length - 1; i++)
+	  			for(var i = 0; i < sdata.length; i++)
 	  			{
-	  				fs.appendFile(filename, sdata[i] + ",",(err) => {
-						if (err) throw err;
-						console.log('The "data to append" was appended to file!');
-					}); 
+	  				if(i = sdata.length - 1)
+	  				{
+	  					fs.appendFile(filename, sdata[i] + ",",(err) => {
+							if (err) throw err;
+							console.log('The "data to append" was appended to file!');
+						});
+	  				}
+	  				else
+	  				{
+		  				fs.appendFile(filename, sdata[i] + ",",(err) => {
+							if (err) throw err;
+							console.log('The "data to append" was appended to file!');
+						}); 
+	  				}
 	  			}
 	  		}
 	  	}
