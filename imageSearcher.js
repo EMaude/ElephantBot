@@ -6,7 +6,7 @@ const search = new GoogleImages(config.CSE_ID, config.CSE_API_KEY);
 exports.imageSearcher = function(searchTerm)
 {
 	var filename = "./searches/" + searchTerm + ".json";
-	var output;
+	var output = "Sorry, something went wrong!";
   	//read file of search term
   	fs.readFile(filename, "utf-8", (err, data) => {
 		//if the file does not exist, search for the term with a random page, and pull out the resulting images to a file
@@ -45,7 +45,7 @@ exports.imageSearcher = function(searchTerm)
 	  		{
 	  			for(var i = sdata.length - 1; i > 0; i--)
 	  			{
-	  				if(i == 1)
+	  				if(i === 1)
 	  				{
 	  					fs.appendFile(filename, sdata[i],(err) => {
 							if (err) throw err;
