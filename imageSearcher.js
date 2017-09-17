@@ -20,12 +20,22 @@ exports.imageSearcher = function(searchTerm)
 
 		  		output = images[9].url;
 		  		//write data to file
-		  		for(var i = 0; i < 9; i++)
+		  		for(var i = 9; i > 0; i--)
 		  		{
-		  			fs.appendFile(filename, images[i].url + "\n",(err) => {
-						if (err) throw err;
-						console.log('The url was appended to file!');
-					}); 
+		  			if(i === 1)
+		  			{
+		  				fs.appendFile(filename, images[i].url,(err) => {
+							if (err) throw err;
+							console.log('The url was appended to file!');
+						});
+		  			}
+		  			else
+		  			{
+		  				fs.appendFile(filename, images[i].url + "\n",(err) => {
+							if (err) throw err;
+							console.log('The url was appended to file!');
+						}); 
+		  			}
 		  		}
 	  		});
 	  	} 
