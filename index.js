@@ -65,7 +65,7 @@ client.on('message', message => {
 	  		{
 	  			for(var i = 0; i < sdata.length; i++)
 	  			{
-	  				if(i = sdata.length - 1)
+	  				if(i == sdata.length - 1)
 	  				{
 	  					fs.appendFile(filename, sdata[i],(err) => {
 							if (err) throw err;
