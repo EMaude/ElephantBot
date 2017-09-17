@@ -9,6 +9,6 @@
   "author": "Elliot Maude",
   "license": "ISC",
   "dependencies": {
-    "image-search": "0.0.1"
+    "google-images": "^2.1.0"
   }
 }

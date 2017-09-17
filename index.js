@@ -5,14 +5,12 @@
 
 //NPM Requires
 const discord = require('discord.js');
-const imageSearch = require("node-google-image-search");
-
+const GoogleImages = require('google-images');
 //Custom Requires
 const config = require("./configs/config.json");
 
-
 const client = new discord.Client();
-
+const search = new GoogleImages(config.CSE_ID, config.CSE_API_KEY);
 // The ready event is vital, it means that your bot will only start reacting to information
 // from Discord _after_ ready is emitted
 client.on('ready', () => {
@@ -23,12 +21,11 @@ client.on('ready', () => {
 client.on('message', message => {
   // If the message is "(prefix)ping"
   if(message.content.startsWith(config.prefix + "elephant")){
-  	var randomOffset = Math.floor(Math.random(0, 100));
-  	var results = imageSearch('elephant', callback, randomOffset, 1);
-
-	function callback(results) {
-		message.channel.send(results);
-	}
+  	client.search('elephant')
+  	.then(images => {
+  		var randSelect = Math.floor(Math.random(0, 100));
+  		message.channel.send(images[randSelect].url);
+  	});
   }
   else if(message.content.startsWith(config.prefix + "ping")){
     // Send "pong" to the same channel
