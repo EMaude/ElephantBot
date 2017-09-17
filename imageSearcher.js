@@ -25,12 +25,13 @@ exports.imageSearcher = function(searchTerm)
 		  			if(i === 1)
 		  			{
 		  				fs.appendFileSync(filename, images[i].url);
+		  			}
 		  			else
 		  			{
 		  				fs.appendFileSync(filename, images[i].url + "\n"); 
 		  			}
 		  		}
-	  		};
+	  		});
 	  	} 
 	  	else 
 	  	{ 	
