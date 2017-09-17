@@ -59,7 +59,7 @@ client.on('message', message => {
 	  		{
 	  			for(var i = 0; i < sdata.length; i++)
 	  			{
-	  				fs.appendFile(filename, images[i].url + ",",(err) => {
+	  				fs.appendFile(filename, sdata[i] + ",",(err) => {
 						if (err) throw err;
 						console.log('The "data to append" was appended to file!');
 					}); 
