@@ -21,7 +21,7 @@ client.on('ready', () => {
 client.on('message', message => {
   // If the message is "(prefix)ping"
   if(message.content.startsWith(config.prefix + "elephant")){
-  	search.search('elephant')
+  	search.search('elephant', {page: 2})
   	.then(images => {
   		var randSelect = Math.floor(Math.random(0, 100));
   		console.log(images.length);
