@@ -1,3 +1,11 @@
+//Elliot Maude
+//September 2017
+//
+// This function gets search results (10 results) from google and caches the results.
+// The file caching reduces api querry requests as they are limited to 100
+//
+//-----------------------------------------------------------------------------------//
+
 const fs = require('fs');
 const config = require("./configs/config.json");
 const GoogleImages = require('google-images');
