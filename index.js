@@ -63,7 +63,7 @@ client.on('message', message => {
 	  		//if more data exists write to file
 	  		if(sdata.length > 1)
 	  		{
-	  			for(var i = 0; i < sdata.length; i++)
+	  			for(var i = 0; i < sdata.length - 1; i++)
 	  			{
 	  				fs.appendFile(filename, sdata[i] + ",",(err) => {
 						if (err) throw err;
