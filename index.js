@@ -19,9 +19,9 @@ client.on('ready', () => {
 // Create an event listener for messages
 client.on('message', message => {
   if(message.content.startsWith(config.prefix + "elephant")){
-
-  	message.channel.send(searcher.imageSearcher('elephant'));
-
+  	var reply = searcher.imageSearcher('elephant');
+  	console.log("Reply: " + reply);
+  	message.channel.send(reply);
   }
   else if(message.content.startsWith(config.prefix + "ping")){
     // Send "pong" to the same channel
