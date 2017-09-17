@@ -63,6 +63,7 @@ exports.imageSearcher = function(searchTerm)
 	  			}
 	  		}
 	  	}
+	  	console.log("Return " + output);
 	  	return output;
   	});
 };
