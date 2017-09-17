@@ -39,7 +39,7 @@ client.on('message', message => {
 		  		//write data to file
 		  		for(var i = 0; i < 9; i++)
 		  		{
-		  			fs.appendFile(filename, images[i].url + ",\n",(err) => {
+		  			fs.appendFile(filename, images[i].url + ",",(err) => {
 						if (err) throw err;
 						console.log('The "data to append" was appended to file!');
 					}); 
@@ -51,10 +51,27 @@ client.on('message', message => {
 	  	{
 	  	
 	  		console.log("File Found");
-	  		//pull message and remove from file
+	  		//send message and write file without it
+	  		var sdata = data.split(",");
+	  		message.channel.send(images[sdata.length].url);
 
-	  		console.log(data);
-
+	  		if(sdata.length > 1)
+	  		{
+	  			for(var i = 0; i < sdata.length, i++)
+	  			{
+	  				fs.appendFile(filename, images[i].url + ",",(err) => {
+						if (err) throw err;
+						console.log('The "data to append" was appended to file!');
+					}); 
+	  			}
+	  		}
+	  		else
+	  		{ //remove file
+	  			fs.unlink(filename, (err) => {
+	  				if(err) throw err;
+	  			});
+	  		}
+	  		
 	  	}
 
   	});
