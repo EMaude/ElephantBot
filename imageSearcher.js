@@ -72,6 +72,10 @@ exports.imageSearcher = function(searchTerm)
 	  			}
 	  		}
 	  	}
+	  	if(output === " ")
+	  	{
+	  		 output = "Sorry, something went wrong!";
+	  	}
 	  	return output;
   	});
 };
