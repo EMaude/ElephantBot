@@ -24,7 +24,7 @@ client.on('message', message => {
 
   if(message.content.startsWith(config.prefix + "elephant")){
 
-  	var filename = "./elephant.json"
+  	var filename = "./searches/elephant.json"
   	//read file of search term
   	fs.readFile(filename, "utf-8", (err, data) => {
 		//if the file does not exist, search for the term with a random page, and pull out the resulting images to a file
