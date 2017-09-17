@@ -26,7 +26,7 @@ client.on('message', message => {
 
   	var filename = "./elephant.json"
   	//read file of search term
-  	fs.readFile(filename, function(err){
+  	fs.readFile(filename, (err, data) => {
 		//if the file does not exist, search for the term with a random page, and pull out the resulting images to a file
 		if(err)
 		{
@@ -52,6 +52,8 @@ client.on('message', message => {
 	  	
 	  		console.log("File Found");
 	  		//pull message and remove from file
+
+	  		console.log(data);
 
 	  	}
 
