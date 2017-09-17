@@ -43,7 +43,7 @@ exports.imageSearcher = function(searchTerm)
 	  		//if more data exists write to file
 	  		if(sdata.length > 1)
 	  		{
-	  			for(var i = sdata.length - 1; i > 0; i++)
+	  			for(var i = sdata.length - 1; i > 0; i--)
 	  			{
 	  				if(i == 1)
 	  				{
