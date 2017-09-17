@@ -30,7 +30,7 @@ client.on('message', message => {
 		//if the file does not exist, search for the term with a random page, and pull out the resulting images to a file
 		if(err)
 		{
-			var randSelect = Math.floor(Math.random(0, 100));
+			var randSelect = Math.floor(Math.random() * 100);
 			console.log("Pulling Page " + randSelect);
 
 		  	search.search('elephant', {page: randSelect})
@@ -39,7 +39,12 @@ client.on('message', message => {
 		  		//write data to file
 		  		for(var i = 0; i < 9; i++)
 		  		{
-		  			fs.appendFile(filename, images[i].url);
+		  			fs.appendFile(filename, images[i].url, function(err){
+		  				if(err)
+		  				{
+		  					return console.error(err);
+		  				}
+		  			});
 		  		}
 	  		});
 
