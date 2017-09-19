@@ -5,7 +5,7 @@
 
 This is a simple Discord.js bot.
 
-This querries a simple google custom search engine through the google API.    //TODO: DOCS on setup process
+This querries a simple google custom search engine through the google API.  ------ //TODO: DOCS on setup process
 
 The google search returns 10 results per querrey, and has a limit of 100 queries per day for free use.
 
@@ -31,4 +31,5 @@ Queue filling of most common terms to use spare queries 	- WIP
 ## Planned
 
 Larger cacheing system to account for running out of queries, while limiting repeat results.
-remove or track the random page selection to reduce the chance of repeat results.
+
+Remove or track the random page selection to reduce the chance of repeat results.
