@@ -9,9 +9,12 @@
   "author": "Elliot Maude",
   "license": "ISC",
   "dependencies": {
+    "discord.js": "^11.2.1",
     "google-images": "^2.1.0"
   },
   "nodemonConfig": {
-   "ignore": ["searches/*"]
+    "ignore": [
+      "searches/*"
+    ]
   }
 }
