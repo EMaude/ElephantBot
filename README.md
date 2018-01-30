@@ -1,4 +1,4 @@
-# discordBot
+# Elephant Bot
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FRedline404%2FdiscordBot.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FRedline404%2FdiscordBot?ref=badge_shield)
 
 ## About
