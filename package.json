@@ -4,17 +4,14 @@
   "description": "A discord bot that will be awesome ... eventually",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Elliot Maude",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.2.1",
+    "discord.js": "^11.3.0",
+    "express": "^4.16.2",
     "google-images": "^2.1.0"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "searches/*"
-    ]
   }
 }
