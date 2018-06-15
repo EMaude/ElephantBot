@@ -7,7 +7,7 @@ This is a simple Discord.js bot i made because my girlfriend likes elephants and
 
 This querries a simple google custom search engine through the google API.
 
-The google search returns 10 results per querrey, and has a limit of 100 queries per day for free use.
+The google search returns 10 results per query, and has a limit of 100 queries per day for free use.
 
 A multi teird caching aproach is in development to reduce the number of queries. As well as to provide some level of backup if the
 querrey limit is reached.
