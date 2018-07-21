@@ -32,11 +32,11 @@ exports.imageSearcher = function(searchTerm, cb)
 		  		{
 		  			if(i === 1)
 		  			{
-		  				fs.appendFileSync(filename, images[i].url);
+		  				fs.appendFileSync(filename, images[i].url).catch(err => {console.log(err)});
 		  			}
 		  			else
 		  			{
-		  				fs.appendFileSync(filename, images[i].url + "\n"); 
+		  				fs.appendFileSync(filename, images[i].url + "\n").catch(err => {console.log(err)}); 
 		  			}
 		  		}
 	  		});
@@ -60,11 +60,11 @@ exports.imageSearcher = function(searchTerm, cb)
 	  			{
 	  				if(i === 1)
 	  				{
-	  					fs.appendFileSync(filename, sdata[i]);
+	  					fs.appendFileSync(filename, sdata[i]).catch(err => {console.log(err)});
 	  				}
 	  				else
 	  				{
-		  				fs.appendFileSync(filename, sdata[i] + "\n"); 
+		  				fs.appendFileSync(filename, sdata[i] + "\n").catch(err => {console.log(err)}); 
 	  				}
 	  			}
 	  		}
