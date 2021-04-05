@@ -3,7 +3,7 @@
 
 ## About
 
-This is a simple Discord.js bot i made because my girlfriend likes elephants and I wanted to learn some node.
+This is a simple Discord.js bot I made because my fiance likes elephants and I wanted to pratice some node.
 
 This querries a simple google custom search engine through the google API.
 
